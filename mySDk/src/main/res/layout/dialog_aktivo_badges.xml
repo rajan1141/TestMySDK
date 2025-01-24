@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_10sdp"
+    android:layout_marginEnd="@dimen/_10sdp"
+    android:background="@color/transparent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        app:cardElevation="@dimen/card_elevation"
+        android:layout_margin="@dimen/_15sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_15sdp"
+            android:background="@drawable/btn_border_disabled"
+            android:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_close_input">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_close_input1"
+                android:layout_width="@dimen/_21sdp"
+                android:layout_height="@dimen/_21sdp"
+                android:visibility="gone"
+                android:padding="@dimen/_2sdp"
+                android:scaleType="centerCrop"
+                android:tint="@color/almost_black"
+                app:srcCompat="@drawable/ic_close"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_badge_title"
+                style="@style/VivantTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Daily Badges"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp"
+                android:paddingStart="@dimen/_45sdp"
+                android:paddingEnd="@dimen/_45sdp"
+                android:paddingTop="@dimen/_6sdp"
+                android:paddingBottom="@dimen/_6sdp"
+                android:background="@drawable/img_badges_header"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_badge_date"
+                style="@style/VivantTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="25 Dec 2024"
+                android:textSize="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_badge_title"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_badge_desc"
+                style="@style/VivantTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Great start! Keep going to level up"
+                android:textColor="@color/mid_gray"
+                android:textSize="@dimen/_13sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_badge_date"/>
+
+            <ProgressBar
+                android:id="@+id/progress_badge"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="0"
+                android:progressDrawable="@drawable/bg_badge_progress"
+                android:scaleY="0.38"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_badge_desc" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_badge_contender"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/img_badge_contender"
+                app:layout_constraintBottom_toBottomOf="@+id/progress_badge"
+                app:layout_constraintStart_toStartOf="@+id/progress_badge"
+                app:layout_constraintTop_toTopOf="@+id/progress_badge"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_badge_challenger"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/img_badge_challenger"
+                app:layout_constraintBottom_toBottomOf="@+id/progress_badge"
+                app:layout_constraintEnd_toStartOf="@+id/img_badge_achiever"
+                app:layout_constraintStart_toEndOf="@+id/img_badge_contender"
+                app:layout_constraintTop_toTopOf="@+id/progress_badge" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_badge_achiever"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginEnd="-2dp"
+                android:src="@drawable/img_badge_achiever"
+                app:layout_constraintBottom_toBottomOf="@+id/progress_badge"
+                app:layout_constraintEnd_toEndOf="@+id/progress_badge"
+                app:layout_constraintTop_toTopOf="@+id/progress_badge"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_badge_contender"
+                style="@style/VivantTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/BADGE_CONTENDER"
+                android:textColor="@color/mid_gray"
+                android:textSize="@dimen/_11sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                app:layout_constraintEnd_toEndOf="@+id/img_badge_contender"
+                app:layout_constraintStart_toStartOf="@+id/img_badge_contender"
+                app:layout_constraintTop_toBottomOf="@+id/img_badge_contender"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_tick_contender"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:src="@drawable/img_tick_green"
+                android:tint="#42A582"
+                android:layout_marginTop="@dimen/_3sdp"
+                app:layout_constraintEnd_toEndOf="@+id/txt_badge_contender"
+                app:layout_constraintStart_toStartOf="@+id/txt_badge_contender"
+                app:layout_constraintTop_toBottomOf="@+id/txt_badge_contender"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_tick_challenger"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:src="@drawable/img_tick_green"
+                android:tint="#42A582"
+                android:layout_marginTop="@dimen/_3sdp"
+                app:layout_constraintEnd_toEndOf="@+id/txt_badge_challenger"
+                app:layout_constraintStart_toStartOf="@+id/txt_badge_challenger"
+                app:layout_constraintTop_toBottomOf="@+id/txt_badge_challenger"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_tick_achiever"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:src="@drawable/img_tick_green"
+                android:tint="#42A582"
+                android:layout_marginTop="@dimen/_3sdp"
+                app:layout_constraintEnd_toEndOf="@+id/txt_badge_achiever"
+                app:layout_constraintStart_toStartOf="@+id/txt_badge_achiever"
+                app:layout_constraintTop_toBottomOf="@+id/txt_badge_achiever"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_badge_challenger"
+                style="@style/VivantTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/BADGE_CHALLENGER"
+                android:textColor="@color/mid_gray"
+                android:textSize="@dimen/_11sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                app:layout_constraintEnd_toEndOf="@+id/img_badge_challenger"
+                app:layout_constraintStart_toStartOf="@+id/img_badge_challenger"
+                app:layout_constraintTop_toBottomOf="@+id/img_badge_challenger" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_badge_achiever"
+                style="@style/VivantTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/BADGE_ACHIEVER"
+                android:textColor="@color/mid_gray"
+                android:textSize="@dimen/_11sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                app:layout_constraintEnd_toEndOf="@+id/img_badge_achiever"
+                app:layout_constraintStart_toStartOf="@+id/img_badge_achiever"
+                app:layout_constraintTop_toBottomOf="@+id/img_badge_achiever" />
+
+            <com.test.my.app.common.view.ArcButton
+                android:id="@+id/btn_view_details"
+                style="@style/CustomButton"
+                android:layout_width="0dp"
+                android:text="@string/VIEW_DETAILS"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
+                app:layout_constraintEnd_toEndOf="@+id/img_badge_achiever"
+                app:layout_constraintStart_toStartOf="@+id/img_badge_contender"
+                app:layout_constraintTop_toBottomOf="@+id/img_tick_challenger" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_close"
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_22sdp"
+            app:srcCompat="@drawable/ic_close"
+            android:tint="@color/white"
+            android:background="@drawable/circle_bg"
+            android:backgroundTint="@color/black"
+            android:elevation="@dimen/_3sdp"
+            android:padding="@dimen/_4sdp"
+            android:layout_margin="@dimen/_5sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

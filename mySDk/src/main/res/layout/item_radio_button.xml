@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rb_option"
+    style="@style/CustomOptionButton"
+    android:layout_height="@dimen/_30sdp"
+    android:layout_gravity="start"
+    android:paddingStart="@dimen/_15sdp"
+    android:paddingEnd="@dimen/_15sdp"
+    android:text="---"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />

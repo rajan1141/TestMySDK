@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_aktivo_param"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardElevation="@dimen/card_elevation"
+    android:layout_marginTop="@dimen/_4sdp"
+    android:layout_marginStart="@dimen/_6sdp"
+    android:layout_marginEnd="@dimen/_6sdp"
+    android:layout_marginBottom="@dimen/_4sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_aktivo_param"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingBottom="@dimen/_8sdp"
+        android:background="#fad1de"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_aktivo_param"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:src="@drawable/img_aktivo_steps"
+            android:tint="#F16691"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lbl_aktivo_param"
+            style="@style/VivantTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/STEPS"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="#F16691"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_aktivo_param"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_aktivo_param"
+            style="@style/VivantTitle"
+            android:layout_width="@dimen/_65sdp"
+            android:layout_height="wrap_content"
+            android:text="5000"
+            android:textSize="@dimen/_11sdp"
+            android:textColor="#F16691"
+            android:gravity="center"
+            android:background="@drawable/btn_oval_fill_selected"
+            android:backgroundTint="@color/vivantWhite"
+            android:paddingTop="@dimen/_2sdp"
+            android:paddingBottom="@dimen/_2sdp"
+            android:paddingStart="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_aktivo_param"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

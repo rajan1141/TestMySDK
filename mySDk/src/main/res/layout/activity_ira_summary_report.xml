@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolBarView"
+        layout="@layout/toolbar_layout_new"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolBarView">
+
+        <at.grabner.circleprogress.CircleProgressView
+            android:id="@+id/indicator_score"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_120sdp"
+            app:animateProgress="true"
+            app:cpv_autoTextSize="true"
+            app:cpv_barColor="@color/colorPrimary"
+            app:cpv_barStrokeCap="Round"
+            app:cpv_barWidth="@dimen/_11sdp"
+            app:cpv_fillColor="@color/white"
+            app:cpv_innerContourColor="#F5F5F5"
+            app:cpv_maxValue="250"
+            app:cpv_outerContourSize="0dp"
+            app:cpv_rimColor="@color/vivant_light_grey"
+            app:cpv_rimWidth="@dimen/_12sdp"
+            app:cpv_seekMode="true"
+            app:cpv_spinColor="@color/highlight_blue"
+            app:cpv_textMode="Text"
+            app:cpv_value="0"
+            android:layout_marginTop="@dimen/_15sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/indicator_score"
+            app:layout_constraintEnd_toEndOf="@+id/indicator_score"
+            app:layout_constraintStart_toStartOf="@+id/indicator_score"
+            app:layout_constraintTop_toTopOf="@+id/indicator_score">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_score"
+                style="@style/VivantTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--"
+                android:textSize="@dimen/_22sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_score_total"
+                style="@style/VivantDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text=" / --"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_score"
+                app:layout_constraintStart_toEndOf="@+id/txt_score"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_immunity_score"
+            style="@style/VivantTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:text="Your Immunity Score"
+            android:textSize="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/indicator_score"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_assessment_obs"
+            style="@style/VivantDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/textViewColor"
+            android:textSize="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            app:layout_constraintEnd_toEndOf="@+id/txt_immunity_score"
+            app:layout_constraintStart_toStartOf="@+id/txt_immunity_score"
+            app:layout_constraintTop_toBottomOf="@+id/txt_immunity_score" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_last_assessment_date"
+            style="@style/VivantTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last Assessment : 06 Jan 2025"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btn_retest"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_retest"
+            style="@style/CustomButton"
+            android:text="Restart Assessment"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_40sdp"
+            android:layout_marginEnd="@dimen/_40sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

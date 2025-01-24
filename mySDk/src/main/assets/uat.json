@@ -1,0 +1,16 @@
+{
+ "config_version": "2",
+ "oauth_client": {
+  "client_id": "sudlifeuat",
+  "client_secret": "eABH66ZsxwaWLvHbyhhBiUqy7DBatbyG"
+ },
+ "api_config": {
+  "base_url": "https://api.sgpreprod.aktivolabs.com/",
+  "accept_header_version": "application/vnd.aktivolabs.v12.0.0+json"
+ },
+ "log_platform_config": {
+  "base_url": "https://56915c95d8454c61be0fc37d7eb7147f.ap-southeast-1.aws.found.io:9243/android_0002_sudlifeuat_1/",
+  "index": "android_0002_sudlifeuat_1",
+  "api_key": "ZVBCVnVvOEIzMUU0UHUwTURMV1Q6b2NlbEd0Nk9STkdZVU1UajBONE1CZw=="
+ }
+}

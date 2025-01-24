@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_8sdp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_quick_reads"
+        style="@style/VivantTitle"
+        android:text="Trending Blogs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_13sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_sub_quick_reads"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_125sdp"
+        android:visibility="visible"
+        tools:listitem="@layout/item_sub_quick_reads"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_marginTop="@dimen/_2sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/txt_quick_reads"
+        app:layout_constraintTop_toBottomOf="@+id/txt_quick_reads"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config>
+        <domain includeSubdomains="true">prodapi.youmatterhealth.com</domain>
+        <pin-set expiration="2025-09-02">
+            <pin digest="SHA-256">BEGFk3NJFWknJBU4S/vA0pS8oP+v46IKTW/4IxWEuis=</pin>
+            <pin digest="SHA-256">BEGFk3NJFWknJBU4S/vA0pS8oP+v46IKTW/4IxWEuis=</pin>
+        </pin-set>
+    </domain-config>
+
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="@raw/youmattercertificate" />
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+
+    <debug-overrides>
+        <trust-anchors>
+            <certificates src="@raw/youmattercertificate" />
+        </trust-anchors>
+    </debug-overrides>
+</network-security-config>

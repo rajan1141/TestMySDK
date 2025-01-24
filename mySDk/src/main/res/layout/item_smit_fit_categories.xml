@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_smit_fit"
+    android:layout_width="@dimen/_64sdp"
+    android:layout_height="@dimen/_85sdp"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_feature"
+        android:layout_width="@dimen/_48sdp"
+        android:layout_height="@dimen/_48sdp"
+        android:background="@drawable/circle_bg"
+        android:backgroundTint="@color/green_light"
+        android:src="@drawable/img_yoga_new"
+        android:padding="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_feature"
+        style="@style/VivantDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/WOMENS_HEALTH"
+        android:textColor="@color/textViewColor"
+        android:textSize="@dimen/_10sdp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_marginBottom="@dimen/_2sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_feature" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_previous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_previous"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:tint="@color/textViewColor"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_previous"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txt_previous"
+            app:srcCompat="@drawable/img_left" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_previous"
+            style="@style/VivantTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/PREVIOUS"
+            android:textSize="@dimen/_16sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_previous"
+            app:layout_constraintStart_toEndOf="@+id/img_previous"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_ques"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_width="@dimen/_100sdp"
+        android:src="@drawable/img_immunity"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_previous" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/questionText"
+        style="@style/HRAQuestion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_ques" />
+
+    <RadioGroup
+        android:id="@+id/rg_ira_selection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintTop_toBottomOf="@+id/questionText"
+        app:layout_constraintStart_toStartOf="@+id/questionText"/>
+
+    <!--    <com.test.my.app.common.view.ExpandedHeightListView
+            android:id="@+id/rv_ira_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            tools:listitem="@layout/item_ira_option"
+            tools:itemCount="5"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:clipToPadding="false"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            app:layout_constraintTop_toBottomOf="@+id/questionText"
+            app:layout_constraintStart_toStartOf="@+id/questionText"/>-->
+
+    <!--    <LinearLayout
+            android:id="@+id/optionsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/questionText"
+            app:layout_constraintBottom_toTopOf="@+id/nextButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />-->
+
+    <!--    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/nextButton"
+            style="@style/CustomButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="Next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/previousButton"
+            style="@style/CustomButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="Previous"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

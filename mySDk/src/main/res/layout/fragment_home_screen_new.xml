@@ -1,0 +1,917 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:SeekArc="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="@dimen/_5sdp"
+    android:paddingEnd="@dimen/_5sdp">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:paddingBottom="@dimen/_30sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_user_name"
+                style="@style/VivantTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:text="@string/HI"
+                android:textSize="@dimen/_13sdp"
+                android:visibility="visible"
+                android:layout_marginStart="@dimen/_5sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_badge_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_27sdp"
+                android:background="@drawable/btn_oval_selected"
+                android:backgroundTint="@color/secondary_light"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_3sdp"
+                app:layout_constraintTop_toBottomOf="@+id/txt_user_name"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_badge"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:src="@drawable/img_badge_contender"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_badge"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/txt_badge"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt_badge"
+                    style="@style/VivantDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/BADGE_CONTENDER"
+                    android:textColor="@color/textViewColor"
+                    android:textSize="@dimen/_11sdp"
+                    android:layout_marginStart="@dimen/_7sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/img_badge"
+                    app:layout_constraintEnd_toStartOf="@+id/img_next_badge"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_next_badge"
+                    android:layout_width="@dimen/_23sdp"
+                    android:layout_height="@dimen/_23sdp"
+                    android:src="@drawable/ic_arrow_right"
+                    android:scaleType="centerCrop"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_badge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/txt_badge"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_dashboard_calender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_badge_progress">
+
+                <com.test.my.app.common.view.ArcImageView
+                    android:id="@+id/img_edit"
+                    android:layout_width="@dimen/_14sdp"
+                    android:layout_height="@dimen/_14sdp"
+                    android:src="@drawable/img_calender2"
+                    android:tint="@color/colorPrimary"
+                    android:layout_marginEnd="@dimen/_6sdp"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_selected_date"
+                    app:layout_constraintEnd_toStartOf="@+id/txt_selected_date"
+                    app:layout_constraintTop_toTopOf="@+id/txt_selected_date" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt_selected_date"
+                    style="@style/VivantTitle"
+                    android:text="---"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/colorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_back"
+                    android:layout_width="@dimen/_23sdp"
+                    android:layout_height="@dimen/_23sdp"
+                    android:padding="@dimen/_3sdp"
+                    app:srcCompat="@drawable/ic_left"
+                    android:tint="@color/textViewColor"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_selected_date"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/txt_selected_date"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_next"
+                    android:layout_width="@dimen/_23sdp"
+                    android:layout_height="@dimen/_23sdp"
+                    android:padding="@dimen/_3sdp"
+                    app:srcCompat="@drawable/ic_right"
+                    android:tint="@color/textViewColor"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_selected_date"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/txt_selected_date"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_dashboard_calender"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:spanCount="7"
+                    tools:itemCount="7"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:listitem="@layout/item_calender_dashboard"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_selected_date"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_aktivo_score"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="visible"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_7sdp"
+                app:layout_constraintStart_toStartOf="@+id/layout_dashboard_calender"
+                app:layout_constraintTop_toTopOf="@+id/card_face_scan"
+                app:layout_constraintBottom_toBottomOf="@+id/card_face_scan"
+                app:layout_constraintEnd_toStartOf="@+id/card_face_scan">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_aktivo_score"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/_7sdp"
+                    android:paddingBottom="@dimen/_7sdp"
+                    android:background="#FFFBF5"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/lbl_aktivo_score"
+                        style="@style/VivantTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/AKTIVO_SCORE"
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@color/secondary_red"
+                        android:gravity="center"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/lbl_aktivo_score_desc"
+                        style="@style/VivantDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lets test how active\nyou are"
+                        android:textSize="@dimen/_10sdp"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginStart="@dimen/_7sdp"
+                        android:layout_marginEnd="@dimen/_7sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/lbl_aktivo_score"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <com.test.my.app.common.view.SeekArc
+                        android:id="@+id/progress_aktivo_score"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_72sdp"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/_10sdp"
+                        SeekArc:progress="0"
+                        app:max="100"
+                        SeekArc:rotation="180"
+                        SeekArc:startAngle="60"
+                        SeekArc:sweepAngle="240"
+                        app:roundEdges="true"
+                        app:arcColor="@color/vivantInactiveLight"
+                        app:progressColor="@color/secondary_red"
+                        app:arcWidth="@dimen/_8sdp"
+                        app:progressWidth="@dimen/_7sdp"
+                        app:touchInside="false"
+                        android:layout_marginTop="@dimen/_18sdp"
+                        app:layout_constraintTop_toBottomOf="@+id/lbl_aktivo_score_desc"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_aktivo_score"
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
+                        android:src="@drawable/img_aktivo_score2"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        app:layout_constraintTop_toTopOf="@+id/progress_aktivo_score"
+                        app:layout_constraintStart_toStartOf="@+id/progress_aktivo_score"
+                        app:layout_constraintEnd_toEndOf="@+id/progress_aktivo_score"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txt_aktivo_score"
+                        style="@style/VivantTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textColor="@color/secondary_red"
+                        android:textSize="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_1sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/progress_aktivo_score"
+                        app:layout_constraintStart_toStartOf="@+id/progress_aktivo_score"
+                        app:layout_constraintTop_toBottomOf="@+id/img_aktivo_score" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_face_scan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                app:layout_constraintEnd_toEndOf="@+id/layout_dashboard_calender"
+                app:layout_constraintStart_toEndOf="@+id/card_aktivo_score"
+                app:layout_constraintTop_toBottomOf="@+id/layout_dashboard_calender">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_face_scan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFBF5"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/lbl_face_scan"
+                        style="@style/VivantTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/SCAN_YOUR_VITALS"
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@color/colorPrimary"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/_7sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_face_scan"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_95sdp"
+                        android:src="@drawable/img_face"
+                        android:background="@drawable/img_scan"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        app:layout_constraintTop_toBottomOf="@+id/lbl_face_scan"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_aktivo_param"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:spanCount="3"
+                tools:itemCount="3"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                tools:listitem="@layout/item_aktivo_param"
+                android:layout_marginTop="@dimen/_7sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_face_scan"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_challenges"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/_7sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_aktivo_param">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_challenges"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="@dimen/card_elevation"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.viewpager2.widget.ViewPager2
+                            android:id="@+id/slidingViewPagerChallenges"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+<!--                <com.test.my.app.common.view.ShiftingIndicatorView
+                    android:id="@+id/shiftingIndicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_margin="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/card_challenges"/>-->
+
+                <com.test.my.app.common.viewpagerdotsindicator.DotsIndicator
+                    android:id="@+id/shifting_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:progressMode="false"
+                    app:dotsColor="@color/vivantInactive"
+                    app:selectedDotColor="@color/colorPrimary"
+                    app:dotsWidthFactor="2.5"
+                    app:dotsSize="@dimen/_7sdp"
+                    app:dotsSpacing="@dimen/_2sdp"
+                    app:dotsCornerRadius="@dimen/_7sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/card_challenges"/>
+
+                <LinearLayout
+                    android:id="@+id/slider_dots_challenges"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/card_challenges"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_mind_score"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="visible"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation"
+                android:layout_marginEnd="@dimen/_5sdp"
+                app:layout_constraintEnd_toStartOf="@+id/card_hra"
+                app:layout_constraintStart_toStartOf="@+id/card_aktivo_score"
+                app:layout_constraintTop_toTopOf="@+id/card_hra"
+                app:layout_constraintBottom_toBottomOf="@+id/card_hra">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_leadership_experinces"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#6577BF"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_bg_mind_score"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/img_bg_mind_score"
+                        android:tint="@color/white"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/progress_mind_score"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/lbl_mind_score"
+                        style="@style/VivantTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/MIND_SCORE"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/white"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/progress_mind_score"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <at.grabner.circleprogress.CircleProgressView
+                        android:id="@+id/progress_mind_score"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        app:animateProgress="true"
+                        app:cpv_autoTextSize="true"
+                        app:cpv_barColor="#939fd2"
+                        app:cpv_barStrokeCap="Round"
+                        app:cpv_barWidth="@dimen/_3sdp"
+                        app:cpv_fillColor="@color/transparent"
+                        app:cpv_innerContourColor="@color/transparent"
+                        app:cpv_maxValue="100"
+                        app:cpv_outerContourSize="0dp"
+                        app:cpv_rimColor="@color/white"
+                        app:cpv_rimWidth="@dimen/_3sdp"
+                        app:cpv_seekMode="true"
+                        app:cpv_spinColor="@color/highlight_blue"
+                        app:cpv_textMode="Text"
+                        app:cpv_value="0"
+                        android:layout_marginEnd="@dimen/_7sdp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txt_mind_score"
+                        style="@style/VivantTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="--"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/progress_mind_score"
+                        app:layout_constraintEnd_toEndOf="@+id/progress_mind_score"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="@+id/progress_mind_score"
+                        app:layout_constraintTop_toTopOf="@+id/progress_mind_score" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/lbl_mind_score_desc"
+                        style="@style/VivantTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/VIEW_DETAILS"
+                        android:textSize="@dimen/_10sdp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_border"
+                        android:padding="@dimen/_7sdp"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/lbl_mind_score" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_hra"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                app:layout_constraintEnd_toEndOf="@+id/card_face_scan"
+                app:layout_constraintStart_toEndOf="@+id/card_mind_score"
+                app:layout_constraintTop_toBottomOf="@+id/layout_challenges">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_hra_start"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+                    android:background="@color/colorPrimary"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_bg_hra_start"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/img_bg_hra"
+                        android:tint="@color/white"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/lbl_hra_title"
+                        style="@style/VivantTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/HRA_NOT_GIVEN"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/lbl_hra_desc"
+                        style="@style/VivantTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_border"
+                        android:padding="@dimen/_7sdp"
+                        android:text="@string/GET_STARTED"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/lbl_hra_title"
+                        app:layout_constraintTop_toBottomOf="@+id/lbl_hra_title" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_hra_given"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible"
+                    android:background="@color/colorPrimary"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_bg_hra"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/img_bg_hra"
+                        android:tint="@color/white"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/hra_progress_bar"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <at.grabner.circleprogress.CircleProgressView
+                        android:id="@+id/hra_progress_bar"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        app:animateProgress="true"
+                        app:cpv_autoTextSize="true"
+                        app:cpv_barColor="@color/red"
+                        app:cpv_barStrokeCap="Round"
+                        app:cpv_barWidth="@dimen/_3sdp"
+                        app:cpv_fillColor="@color/transparent"
+                        app:cpv_innerContourColor="@color/transparent"
+                        app:cpv_maxValue="100"
+                        app:cpv_outerContourSize="0dp"
+                        app:cpv_rimColor="@color/white"
+                        app:cpv_rimWidth="@dimen/_3sdp"
+                        app:cpv_seekMode="true"
+                        app:cpv_spinColor="@color/highlight_blue"
+                        app:cpv_textMode="Text"
+                        app:cpv_value="0"
+                        android:layout_marginEnd="@dimen/_7sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txt_hra_score"
+                        style="@style/VivantTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="--"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/hra_progress_bar"
+                        app:layout_constraintEnd_toEndOf="@+id/hra_progress_bar"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="@+id/hra_progress_bar"
+                        app:layout_constraintTop_toTopOf="@+id/hra_progress_bar" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/lbl_hra_status_desc"
+                        style="@style/VivantTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/WELLNESS_SCORE"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        app:layout_constraintEnd_toStartOf="@+id/hra_progress_bar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/lbl_hra_view_details"
+                        style="@style/VivantTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_border"
+                        android:padding="@dimen/_6sdp"
+                        android:text="@string/VIEW_DETAILS"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        app:layout_constraintTop_toBottomOf="@+id/lbl_hra_status_desc"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/lbl_hra_status_desc" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_food_tracker"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintHorizontal_weight="0.35"
+                android:visibility="visible"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation"
+                android:layout_marginEnd="@dimen/_6sdp"
+                app:layout_constraintEnd_toStartOf="@+id/card_hydration_tracker"
+                app:layout_constraintStart_toStartOf="@+id/card_aktivo_score"
+                app:layout_constraintBottom_toBottomOf="@+id/card_hydration_tracker"
+                app:layout_constraintTop_toTopOf="@+id/card_hydration_tracker">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_food_tracker"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:background="@color/secondary_light"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_food_tracker"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/img_food_tracker"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/lbl_food_tracker"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/lbl_food_tracker" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/lbl_food_tracker"
+                        style="@style/VivantTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Food"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        app:layout_constraintStart_toEndOf="@+id/img_food_tracker"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtWaterConsumed1"
+                        style="@style/VivantTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textColor="#AF4A4A"
+                        android:textSize="@dimen/_14sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        app:layout_constraintStart_toStartOf="@+id/img_food_tracker"
+                        app:layout_constraintTop_toBottomOf="@+id/lbl_food_tracker" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtWaterGoal1"
+                        style="@style/VivantDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" / -- ml"
+                        android:textColor="#AF4A4A"
+                        android:textSize="@dimen/_11sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/txtWaterConsumed1"
+                        app:layout_constraintStart_toEndOf="@+id/txtWaterConsumed1" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_hydration_tracker"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_weight="0.65"
+                android:visibility="visible"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_6sdp"
+                app:layout_constraintEnd_toEndOf="@+id/card_face_scan"
+                app:layout_constraintStart_toEndOf="@+id/card_food_tracker"
+                app:layout_constraintTop_toBottomOf="@+id/card_hra">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_hydration_tracker"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/_6sdp"
+                    android:paddingBottom="@dimen/_3sdp"
+                    android:background="#ecf0ff"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_water_tracker"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:src="@drawable/img_water_glass"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/txtWaterConsumed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/lbl_water_tracker"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/lbl_water_tracker"
+                        style="@style/VivantTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/HYDRATION_TRACKER"
+                        android:textColor="@color/blue"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        app:layout_constraintStart_toEndOf="@+id/img_water_tracker"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtWaterConsumed"
+                        style="@style/VivantTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textSize="@dimen/_14sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        app:layout_constraintStart_toStartOf="@+id/lbl_water_tracker"
+                        app:layout_constraintTop_toBottomOf="@+id/lbl_water_tracker" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtWaterGoal"
+                        style="@style/VivantDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" / -- ml"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="@dimen/_11sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/txtWaterConsumed"
+                        app:layout_constraintStart_toEndOf="@+id/txtWaterConsumed" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_medication_tracker"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation"
+                android:layout_marginTop="@dimen/_11sdp"
+                app:layout_constraintEnd_toEndOf="@+id/card_face_scan"
+                app:layout_constraintStart_toStartOf="@+id/card_aktivo_score"
+                app:layout_constraintTop_toBottomOf="@+id/card_hydration_tracker">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_medication_tracker"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/_11sdp"
+                    android:paddingBottom="@dimen/_11sdp"
+                    android:background="#8ddfc2"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_medication_tracker"
+                        android:layout_width="@dimen/_42sdp"
+                        android:layout_height="@dimen/_42sdp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:src="@drawable/img_medicine_tracker"
+                        app:layout_constraintBottom_toBottomOf="@+id/txt_next_dose"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/lbl_medication_tracker" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/lbl_medication_tracker"
+                        style="@style/VivantTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/MEDICATION_TRACKER"
+                        android:textColor="#2C755B"
+                        android:textSize="@dimen/_14sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        app:layout_constraintStart_toEndOf="@+id/img_medication_tracker"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txt_next_dose"
+                        style="@style/VivantDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="Next Dose at"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        app:layout_constraintStart_toStartOf="@+id/lbl_medication_tracker"
+                        app:layout_constraintTop_toBottomOf="@+id/lbl_medication_tracker" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txt_dose"
+                        style="@style/VivantTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--:-- --"
+                        android:textColor="#2C755B"
+                        android:textSize="@dimen/_12sdp"
+                        android:paddingTop="@dimen/_3sdp"
+                        android:paddingBottom="@dimen/_3sdp"
+                        android:paddingStart="@dimen/_6sdp"
+                        android:paddingEnd="@dimen/_6sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:background="@drawable/btn_oval_selected"
+                        android:backgroundTint="@color/secondary_light"
+                        app:layout_constraintTop_toTopOf="@+id/txt_next_dose"
+                        app:layout_constraintBottom_toBottomOf="@+id/txt_next_dose"
+                        app:layout_constraintStart_toEndOf="@+id/txt_next_dose" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:background="@color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_medication_tracker" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

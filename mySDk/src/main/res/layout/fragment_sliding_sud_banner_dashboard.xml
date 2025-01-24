@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_banner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/policy_banner_height"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:src="@drawable/img_placeholder"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <CheckBox
+        android:id="@+id/disclaimerCB"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:checked="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/disclaimerTV"
+        app:layout_constraintBottom_toBottomOf="@+id/disclaimerTV"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/disclaimerTV"
+        style="@style/VivantDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="@dimen/_8sdp"
+        android:minLines="4"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginStart="@dimen/_3sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_banner"
+        app:layout_constraintStart_toEndOf="@id/disclaimerCB"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="@id/clickHereToKnowTV"
+        app:layout_constraintBottom_toBottomOf="@id/clickHereToKnowTV"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/clickHereToKnowTV"
+        style="@style/VivantTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:text="@string/CLICK_HERE_TO_KNOW_MORE"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10sdp"
+        android:padding="@dimen/_9sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        app:layout_constraintEnd_toStartOf="@+id/share_banner"
+        app:layout_constraintTop_toBottomOf="@id/disclaimerTV"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/share_banner"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:src="@drawable/ic_svg_share_white"
+        android:scaleType="centerCrop"
+        android:padding="@dimen/_9sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/clickHereToKnowTV"
+        app:layout_constraintTop_toTopOf="@id/clickHereToKnowTV"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

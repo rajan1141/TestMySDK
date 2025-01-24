@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.test.my.app">
+
+    <uses-feature android:name="android.hardware.camera"/>
+
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+
+    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+    </queries>
+
+
+    <queries>
+        <!-- Explicit apps you know in advance about: -->
+        <package android:name="com.whatsapp" />
+    </queries>
+
+
+    <application>
+
+        <activity
+            android:name="com.test.my.app.MainAppActivity"
+            android:exported="true">
+          <!--  <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+-->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="youmatter.onelink.me"
+                    android:pathPrefix="/UtYy"
+                    android:scheme="https" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="mainactivity"
+                    android:scheme="youmatterapp" />
+            </intent-filter>
+
+        </activity>
+
+        <!-- Trigger Google Play services to install the backported photo picker module. -->
+       <!-- <service android:name="com.google.android.gms.metadata.ModuleDependencies"
+            android:enabled="false"
+            android:exported="false"
+            tools:ignore="MissingClass">
+            <intent-filter>
+                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
+            </intent-filter>
+            <meta-data android:name="photopicker_activity:0:required" android:value="" />
+        </service>-->
+
+        <service
+            android:name="com.test.my.app.receiver.FCMMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="CLEVERTAP_NOTIFICATION_ICON"
+            android:value="notification_logo"/> <!-- name of your file in the drawable directory without the file extension. -->
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/notification_logo" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/secondary_red" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+
+        </provider>
+
+        <service
+            android:name="com.test.my.app.common.syncadapter.SyncService"
+            android:exported="false"
+            android:process=":sync">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/syncadapter" />
+        </service>
+
+        <receiver
+            android:name="com.test.my.app.receiver.AppNavigationBroadcastReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="HRA" />
+                <action android:name="FAMILY_HRA" />
+                <action android:name="STEPS" />
+                <action android:name="BLOG" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="CLEVERTAP_ACCOUNT_ID"
+            android:value="@string/CLEVERTAP_ACCOUNT_ID" />
+        <meta-data
+            android:name="CLEVERTAP_TOKEN"
+            android:value="@string/CLEVERTAP_TOKEN" />
+        <meta-data
+            android:name="CLEVERTAP_REGION"
+            android:value="eu1" />
+
+
+        <!--   <service
+               android:name="com.test.my.app.common.syncadapter.SyncService"
+               android:exported="false"
+               android:process=":sync">
+               <intent-filter>
+                   <action android:name="android.content.SyncAdapter"/>
+               </intent-filter>
+               <meta-data android:name="android.content.SyncAdapter"
+                   android:resource="@xml/syncadapter" />
+           </service>-->
+
+        <!--Start Blog Module -->
+        <activity
+            android:name="com.test.my.app.blogs.BlogsActivity"
+            android:exported="false" />
+
+        <!-- <service
+             android:name="com.test.my.app.common.syncadapter.SyncService"
+             android:exported="false"
+             android:process=":sync">
+             <intent-filter>
+                 <action android:name="android.content.SyncAdapter"/>
+             </intent-filter>
+             <meta-data android:name="android.content.SyncAdapter"
+                 android:resource="@xml/syncadapter" />
+         </service>-->
+        <!--End Blog Module-->
+
+        <!--Start Fitness Tracker -->
+        <activity
+            android:name="com.test.my.app.fitness_tracker.ui.FitnessDataActivity"
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
+        <activity
+            android:name="com.test.my.app.fitness_tracker.FitnessHomeActivity"
+            android:exported="false"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <receiver
+            android:name="com.test.my.app.fitness_tracker.receiver.FitnessBroadcastReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="ClearFitnessData" />
+            </intent-filter>
+        </receiver>
+
+        <!-- <service
+             android:name="com.test.my.app.common.syncadapter.SyncService"
+             android:exported="false"
+             android:process=":sync">
+             <intent-filter>
+                 <action android:name="android.content.SyncAdapter"/>
+             </intent-filter>
+             <meta-data android:name="android.content.SyncAdapter"
+                 android:resource="@xml/syncadapter" />
+         </service>-->
+
+        <!--End Fitness Tracker -->
+
+        <!--WYH-->
+        <activity
+            android:name="com.test.my.app.wyh.faceScan.ui.BeginVitalsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.wyh.faceScan.ui.FaceScanResultActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.wyh.faceScan.ui.FaceScanActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.test.my.app.wyh.healthContent.ui.HealthContentDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.wyh.healthContent.ui.HealthContentDashboardActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.test.my.app.wyh.ira.ui.IraSummaryReportActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.wyh.ira.ui.IraQuestionPagerActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.test.my.app.wyh.hra.ui.SummaryReportActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.wyh.hra.ui.QuestionPagerActivity"
+            android:exported="false" />
+        <!--WYH-->
+
+        <!--Start Home Module -->
+        <activity
+            android:name="com.test.my.app.home.ui.nimeya.NimeyaActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name="com.test.my.app.home.ui.WebViews.GeneralWebNotificationActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.home.ui.WebViews.LeadershipExperincesActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.home.ui.WebViews.FitrofySdpActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.home.ui.nimeya.NimeyaWebViewActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.home.ui.AvatarWebViewActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.home.ui.WebViews.SaltWebViewActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.home.ui.WebViews.FeedUpdateActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name="com.test.my.app.home.ui.aktivo.AktivoPermissionsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.home.ui.sudLifePolicy.SudPolicyAuthenticationActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.home.ui.sudLifePolicy.SudLifePolicyActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.home.ui.wellfie.BmiVitalsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.home.ui.WebViews.AmahaWebViewActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.home.ui.wellfie.WellfieResultActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.home.ui.wellfie.WellfieActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.home.ui.TermsConditionActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.home.ui.LanguageActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.home.ui.ProfileAndFamilyMember.EditFamilyMemberActivity"
+            android:exported="false"/>
+        <activity
+            android:name="com.test.my.app.home.ui.ProfileAndFamilyMember.EditProfileActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.test.my.app.home.ui.PasswordChangeActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.test.my.app.home.ui.SettingsActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.test.my.app.home.ui.BlogDetailActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.test.my.app.home.ui.WebViews.CommonWebViewActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.home.ui.ProfileAndFamilyMember.FamilyProfileActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:exported="true"
+            android:name="com.test.my.app.home.ui.HomeMainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:finishOnTaskLaunch="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- <activity
+             android:name="com.yalantis.ucrop.UCropActivity"
+             android:screenOrientation="portrait"
+             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />-->
+       <!-- <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/ImageCropperTheme" />-->
+
+        <!-- Theme is optional and only needed if default theme has no action bar. -->
+        <activity
+            android:name="com.canhub.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat"
+            />
+
+        <activity
+            android:name="com.smitfit.media.lib.ui.feature.main.ui.MainActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SmithFitMediaLibraryCustom" />
+
+        <activity
+            android:name="com.test.my.app.home.ui.ProfileAndFamilyMember.CropPictureActivity"
+            android:exported="false" />
+
+        <!--<service
+            android:name="com.test.my.app.common.syncadapter.SyncService"
+            android:exported="false"
+            android:process=":sync">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/syncadapter" />
+        </service>-->
+
+        <!--End Home Module -->
+
+
+        <!--Start Hra Module -->
+        <activity
+            android:name="com.test.my.app.hra.ui.HraInfoActivity"
+            android:configChanges="orientation|keyboard"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name="com.test.my.app.hra.HraHomeActivity"
+            android:configChanges="orientation|keyboard"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name="com.test.my.app.hra.ui.HraQuestionsActivity"
+            android:configChanges="orientation|keyboard"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name="com.test.my.app.hra.ui.HraSummaryActivity"
+            android:configChanges="orientation|keyboard"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
+        <!-- <service
+             android:name="com.test.my.app.common.syncadapter.SyncService"
+             android:exported="false"
+             android:process=":sync">
+             <intent-filter>
+                 <action android:name="android.content.SyncAdapter"/>
+             </intent-filter>
+             <meta-data android:name="android.content.SyncAdapter"
+                 android:resource="@xml/syncadapter" />
+         </service>
+ -->
+        <!--End Hra Module -->
+
+        <!--Start Medication Module-->
+        <activity
+            android:name="com.test.my.app.medication_tracker.MedicationHomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan">
+
+        </activity>
+
+        <receiver
+            android:name="com.test.my.app.medication_tracker.receiver.MedicineReminderBroadcastReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="MEDICATION" />
+                <action android:name="Taken" />
+                <action android:name="Skipped" />
+                <action android:name="Data" />
+            </intent-filter>
+        </receiver>
+
+        <!-- <service
+             android:name="com.test.my.app.common.syncadapter.SyncService"
+             android:exported="false"
+             android:process=":sync">
+             <intent-filter>
+                 <action android:name="android.content.SyncAdapter"/>
+             </intent-filter>
+             <meta-data android:name="android.content.SyncAdapter"
+                 android:resource="@xml/syncadapter" />
+         </service>-->
+        <!--End Medication Module-->
+
+
+        <!--Start Record Tracker Module-->
+        <activity
+            android:name="com.test.my.app.records_tracker.HealthRecordsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <!--End Record Tracker Module-->
+
+
+        <!--start Security Module-->
+        <activity
+            android:name="com.test.my.app.security.ui.TermsAndPolicyActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.test.my.app.security.ui.AppIntroductionActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.facebook.sdk.ClientToken"
+            android:value="@string/facebook_client_token" />
+        <meta-data
+            android:name="com.facebook.sdk.AutoLogAppEventsEnabled"
+            android:value="true" />
+        <!--
+<activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+        -->
+        <activity
+            android:name="com.test.my.app.security.ui.SecurityActivity"
+            android:configChanges="orientation|keyboard"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
+        <activity
+            android:name="com.test.my.app.security.ui.SplashScreenActivity"
+            android:configChanges="orientation|keyboard"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+       <!-- <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />-->
+
+        <service
+            android:name="com.test.my.app.common.syncadapter.SyncService"
+            android:exported="false"
+            android:process=":sync">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/syncadapter" />
+        </service>
+        <!--end Security Module-->
+
+
+        <!--Start Tool Calculator Module .ToolsCalculatorsHomeActivity-->
+        <activity
+            android:name="com.test.my.app.tools_calculators.ToolsCalculatorsHomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--End Tool Calculator Module-->
+
+
+        <activity
+            android:name="com.test.my.app.track_parameter.ParameterHomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
+
+        <activity
+            android:name="com.test.my.app.water_tracker.WaterTrackerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
+        <activity
+            android:name="com.test.my.app.SSOLoaderActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>
+

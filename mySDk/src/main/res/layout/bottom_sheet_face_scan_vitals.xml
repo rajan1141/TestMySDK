@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_close"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:tint="@color/black"
+            app:srcCompat="@drawable/ic_close"
+            android:layout_margin="@dimen/_5sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_4sdp"
+            android:background="@color/light_gray"
+            android:layout_marginTop="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/layout_upper"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_upper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/layout_levels">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lbl_face_scan"
+                style="@style/VivantTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/SCAN_YOUR_VITALS"
+                android:textSize="@dimen/_15sdp"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_15sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_scan_vitals"
+                android:layout_width="@dimen/_115sdp"
+                android:layout_height="@dimen/_110sdp"
+                android:src="@drawable/img_face"
+                android:background="@drawable/img_scan"
+                android:paddingTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_face_scan"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lbl_last_scanned"
+                style="@style/VivantTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Your Last Scanned Vitals"
+                android:textSize="@dimen/_13sdp"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_7sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_scan_vitals"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_last_scanned_date"
+                style="@style/VivantTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15 Jan 2025"
+                android:textSize="@dimen/_10sdp"
+                android:textColor="@color/vivant_edit_textcolor"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_1sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_last_scanned"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_levels"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/view">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_oxygen"
+                android:layout_width="@dimen/_23sdp"
+                android:layout_height="@dimen/_23sdp"
+                android:src="@drawable/img_wellfie_oxygen"
+                android:tint="@color/navy"
+                android:padding="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/progress_oxygen"
+                app:layout_constraintEnd_toStartOf="@+id/progress_oxygen"
+                app:layout_constraintTop_toTopOf="@+id/progress_oxygen"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lbl_oxygen_level"
+                style="@style/VivantDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/OXYGEN_LEVEL"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/textViewColor"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:layout_constraintStart_toStartOf="@+id/progress_oxygen"
+                app:layout_constraintEnd_toEndOf="@+id/progress_oxygen"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ProgressBar
+                android:id="@+id/progress_oxygen"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_20sdp"
+                android:progress="0"
+                android:scaleY="0.6"
+                android:progressTint="@color/navy"
+                android:progressDrawable="@drawable/steps_bg_progress"
+                android:layout_marginStart="@dimen/_70sdp"
+                android:layout_marginEnd="@dimen/_70sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_oxygen_level"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_oxygen"
+                style="@style/VivantDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/textViewColor"
+                android:layout_marginStart="@dimen/_5sdp"
+                app:layout_constraintStart_toEndOf="@+id/progress_oxygen"
+                app:layout_constraintTop_toTopOf="@+id/progress_oxygen"
+                app:layout_constraintBottom_toBottomOf="@+id/progress_oxygen"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lbl_stress_level"
+                style="@style/VivantDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/STRESS_LEVEL"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/textViewColor"
+                android:layout_marginTop="@dimen/_6sdp"
+                app:layout_constraintStart_toStartOf="@+id/progress_oxygen"
+                app:layout_constraintEnd_toEndOf="@+id/progress_oxygen"
+                app:layout_constraintTop_toBottomOf="@+id/progress_oxygen"/>
+
+            <ProgressBar
+                android:id="@+id/progress_stress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_20sdp"
+                android:progress="20"
+                android:scaleY="0.6"
+                android:progressTint="@color/color_exercise"
+                android:progressDrawable="@drawable/steps_bg_progress"
+                android:layout_marginStart="@dimen/_70sdp"
+                android:layout_marginEnd="@dimen/_70sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_stress_level"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_stress"
+                style="@style/VivantDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/textViewColor"
+                android:layout_marginStart="@dimen/_5sdp"
+                app:layout_constraintStart_toEndOf="@+id/progress_stress"
+                app:layout_constraintTop_toTopOf="@+id/progress_stress"
+                app:layout_constraintBottom_toBottomOf="@+id/progress_stress"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_stress"
+                android:layout_width="@dimen/_23sdp"
+                android:layout_height="@dimen/_23sdp"
+                android:src="@drawable/img_wellfie_stress"
+                android:tint="@color/color_exercise"
+                android:padding="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/progress_stress"
+                app:layout_constraintEnd_toStartOf="@+id/progress_stress"
+                app:layout_constraintTop_toTopOf="@+id/progress_stress"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0.7dp"
+            android:background="@color/light_gray"
+            android:layout_marginBottom="@dimen/_5sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/rv_scan_vitals"/>
+
+        <com.test.my.app.common.view.ExpandedHeightListView
+            android:id="@+id/rv_scan_vitals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:spanCount="2"
+            tools:itemCount="4"
+            tools:listitem="@layout/item_wellfie_dashboard"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btn_rescan_vitals"/>
+
+        <com.test.my.app.common.view.ArcButton
+            android:id="@+id/btn_rescan_vitals"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:text="@string/RESCAN_YOUR_VITALS"
+            app:isTemplate="true"
+            android:layout_marginBottom="@dimen/_15sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/rv_scan_vitals"
+            app:layout_constraintStart_toStartOf="@+id/rv_scan_vitals" />
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_remove_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/layout_take_photo"
+            app:layout_constraintStart_toStartOf="@+id/layout_take_photo"
+            app:layout_constraintTop_toBottomOf="@+id/layout_take_photo">
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
