@@ -71,10 +71,10 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
-    dexOptions {
+    /*dexOptions {
         //incremental true
         javaMaxHeapSize "4g"
-    }
+    }*/
     packagingOptions {
         exclude "META-INF/MANIFEST.MF"
         exclude "META-INF/LICENSE.txt"

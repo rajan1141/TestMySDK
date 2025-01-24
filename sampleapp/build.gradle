@@ -28,10 +28,10 @@ android {
         buildConfig true
     }
 
-    dexOptions {
+   /* dexOptions {
         //incremental true
         javaMaxHeapSize "4g"
-    }
+    }*/
 
     buildTypes {
         release {
