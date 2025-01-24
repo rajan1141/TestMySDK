@@ -98,14 +98,14 @@ publishing {
         release(MavenPublication) {
             afterEvaluate {
                 from components.release
-                groupId = 'github.com.YouMatter'
-                artifactId = 'YouMatter_SDK_Sample'
+                groupId = 'github.com.MyTest'
+                artifactId = 'MyTest_SDK_Sample'
                 version = '1.0.0'
 
                 pom {
-                    name = 'YouMatter SDK'
-                    description = 'YouMatter_SDK_Sample'
-                    url = 'https://github.com/sudlife/youmatter_android_sdk_BOI'
+                    name = 'MyTest SDK'
+                    description = 'MyTest_SDK_Sample'
+                    url = 'https://github.com/rajan1141/TestMySDK/tree/1.0.1'
 
                     licenses {
                         license {
@@ -116,9 +116,9 @@ publishing {
 
 
                     scm {
-                        connection = 'scm:git:git://https://github.com/sudlife/youmatter_android_sdk_BOI'
-                        developerConnection = 'scm:git:ssh://https://github.com/sudlife/youmatter_android_sdk_BOI'
-                        url = 'https://github.com/sudlife/youmatter_android_sdk_BOI'
+                        connection = 'scm:git:git://https://github.com/rajan1141/TestMySDK/tree/1.0.1'
+                        developerConnection = 'scm:git:ssh://https://github.com/rajan1141/TestMySDK/tree/1.0.1'
+                        url = 'https://github.com/rajan1141/TestMySDK/tree/1.0.1'
                     }
                 }
             }
