@@ -18,7 +18,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
-import com.aktivolabs.aktivocore.data.models.Stats
+/*import com.aktivolabs.aktivocore.data.models.Stats
 import com.aktivolabs.aktivocore.data.models.User
 import com.aktivolabs.aktivocore.data.models.badges.DailyBadge
 import com.aktivolabs.aktivocore.data.models.challenge.Challenge
@@ -33,7 +33,7 @@ import com.aktivolabs.aktivocore.data.models.score.ScoreStats
 import com.aktivolabs.aktivocore.data.models.sleep.SleepStats
 import com.aktivolabs.aktivocore.data.models.steps.StepStats
 import com.aktivolabs.aktivocore.managers.AktivoManager
-import com.aktivolabs.aktivocore.network.ResultData
+import com.aktivolabs.aktivocore.network.ResultData*/
 import com.test.my.app.R
 import com.test.my.app.common.base.BaseFragment
 import com.test.my.app.common.base.BaseViewModel
@@ -86,7 +86,7 @@ class AktivoScreenFragment : BaseFragment(), ScoreListener, HomeMainActivity.OnA
     private var slidingImageDotsChallenges: Array<ImageView?> = arrayOf()
     private var slidingDotsCountChallenges = 0
     private val todayDate = DateHelper.currentDateAsStringyyyyMMdd
-    private var aktivoManager: AktivoManager? = null
+//    private var aktivoManager: AktivoManager? = null
     private var compositeDisposable: CompositeDisposable? = null
     private var animation: Animation? = null
 
@@ -132,7 +132,7 @@ class AktivoScreenFragment : BaseFragment(), ScoreListener, HomeMainActivity.OnA
     private fun initialise() {
         CleverTapHelper.pushEvent(requireContext(), CleverTapConstants.DASHBOARD_SCREEN)
         animation = AnimationUtils.loadAnimation(requireContext(), R.anim.anim_pulse_once)
-        aktivoManager = AktivoManager.getInstance(requireContext())
+//        aktivoManager = AktivoManager.getInstance(requireContext())
         compositeDisposable = CompositeDisposable()
         //(activity as HomeMainActivity).registerListener(this)
 
@@ -436,13 +436,13 @@ class AktivoScreenFragment : BaseFragment(), ScoreListener, HomeMainActivity.OnA
         val userId = viewModel.getUserPreference(PreferenceConstants.AKTIVO_MEMBER_ID)
         val token = viewModel.getUserPreference(PreferenceConstants.AKTIVO_ACCESS_TOKEN)
         val refreshToken = viewModel.getUserPreference(PreferenceConstants.AKTIVO_REFRESH_TOKEN)
-        aktivoManager!!.setClientId(Constants.strAktivoClientId)
-        aktivoManager!!.setUserTokens(token, refreshToken)
+//        aktivoManager!!.setClientId(Constants.strAktivoClientId)
+//        aktivoManager!!.setUserTokens(token, refreshToken)
         authenticateUser(userId)
     }
 
     private fun authenticateUser(userId: String) {
-        try {
+        /*try {
             aktivoManager!!.authenticateUser(User(userId), requireActivity())
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : CompletableObserver {
@@ -459,7 +459,7 @@ class AktivoScreenFragment : BaseFragment(), ScoreListener, HomeMainActivity.OnA
                 })
         } catch (e: Exception) {
             e.printStackTrace()
-        }
+        }*/
     }
 
     private fun checkFitnessPermissionsAndProceed() {
@@ -483,7 +483,7 @@ class AktivoScreenFragment : BaseFragment(), ScoreListener, HomeMainActivity.OnA
 
 
     private fun syncFitnessData() {
-        try {
+       /* try {
             //viewModel.showProgress()
             compositeDisposable!!.add(
                 aktivoManager!!.syncFitnessData().subscribeOn(Schedulers.io())
@@ -510,11 +510,11 @@ class AktivoScreenFragment : BaseFragment(), ScoreListener, HomeMainActivity.OnA
             )
         } catch (e: Exception) {
             e.printStackTrace()
-        }
+        }*/
     }
 
     private fun getLatestAktivoScore() {
-        try {
+       /* try {
             var score = ""
             Utilities.printLogError("TodaysDate--->$todayDate")
             val date = DateHelper.getDateBeforeOrAfterGivenDaysNew(todayDate, -1)
@@ -547,11 +547,11 @@ class AktivoScreenFragment : BaseFragment(), ScoreListener, HomeMainActivity.OnA
                 })
         } catch (e: Exception) {
             e.printStackTrace()
-        }
+        }*/
     }
 
     private fun getMindScore() {
-        try {
+        /*try {
             val resultData: ResultData<MindScore> =
                 aktivoManager!!.getLatestMindScore(viewModel.getUserPreference(PreferenceConstants.AKTIVO_MEMBER_ID))
             when (resultData) {
@@ -560,9 +560,9 @@ class AktivoScreenFragment : BaseFragment(), ScoreListener, HomeMainActivity.OnA
                     Utilities.printLogError("MindScore : $mindScore")
                     if (mindScore >= 0) {
                         binding.txtMindScore.text = mindScore.toString()
-                    }/*                    else {
+                    }*//*                    else {
                                             binding.txtMindScore.text = resources.getString(R.string.CHECK_NOW)
-                                        }*/
+                                        }*//*
                     stopMindScoreShimmer()
                 }
 
@@ -573,10 +573,10 @@ class AktivoScreenFragment : BaseFragment(), ScoreListener, HomeMainActivity.OnA
             }
         } catch (e: Exception) {
             e.printStackTrace()
-        }
+        }*/
     }
 
-    private fun getAktivoParameters() {
+   /* private fun getAktivoParameters() {
         val queryList = ArrayList<Query>()
         queryList.add(ScoreQuery(todayDate, todayDate))
         queryList.add(StepsQuery(todayDate, todayDate))
@@ -644,10 +644,10 @@ class AktivoScreenFragment : BaseFragment(), ScoreListener, HomeMainActivity.OnA
                     Utilities.printLogError("Aktivo stats error: " + e.localizedMessage + "---" + e.message)
                 }
             })
-    }
+    }*/
 
 
-    private fun getOngoingChallenges() {
+   /* private fun getOngoingChallenges() {
         try {
             Utilities.printLogError("Fetching ongoing challenges")
             aktivoManager!!.getOngoingChallenges(
@@ -712,7 +712,7 @@ class AktivoScreenFragment : BaseFragment(), ScoreListener, HomeMainActivity.OnA
         } catch (e: Exception) {
             e.printStackTrace()
         }
-    }
+    }*/
 
     fun setBadgeView(badge: String) {
 
@@ -832,7 +832,7 @@ class AktivoScreenFragment : BaseFragment(), ScoreListener, HomeMainActivity.OnA
     }
 
     private fun checkAllGoogleFitPermission() {
-        try {
+        /*try {
             aktivoManager!!.isGoogleFitPermissionGranted.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : SingleObserver<Boolean> {
@@ -852,11 +852,11 @@ class AktivoScreenFragment : BaseFragment(), ScoreListener, HomeMainActivity.OnA
                 })
         } catch (e: Exception) {
             e.printStackTrace()
-        }
+        }*/
     }
 
     private fun requestAllGoogleFitPermission() {
-        try {
+        /*try {
             Utilities.printLogError("Requesting All Google fit permissions")
             aktivoManager!!.requestGoogleFitPermissions(
                 requireActivity(), Constants.REQ_CODE_AKTIVO_GOOGLE_FIT_PERMISSIONS
@@ -870,12 +870,12 @@ class AktivoScreenFragment : BaseFragment(), ScoreListener, HomeMainActivity.OnA
                 })
         } catch (e: Exception) {
             e.printStackTrace()
-        }
+        }*/
     }
 
     @RequiresApi(Build.VERSION_CODES.Q)
     private fun checkPhysicalActivityPermission() {
-        try {
+        /*try {
             Utilities.printLogError("Checking Physical Activity permissions")
             aktivoManager!!.isActivityRecognitionPermissionGranted(requireActivity())
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
@@ -894,12 +894,12 @@ class AktivoScreenFragment : BaseFragment(), ScoreListener, HomeMainActivity.OnA
                 })
         } catch (e: Exception) {
             e.printStackTrace()
-        }
+        }*/
     }
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
     private fun requestPhysicalActivityPermission() {
-        try {
+       /* try {
             Utilities.printLogError("Requesting Physical Activity permissions")
             aktivoManager!!.requestActivityRecognitionPermission(
                 requireActivity(), Constants.REQ_PHYSICAL_ACTIVITY_PERMISSIONS
@@ -913,7 +913,7 @@ class AktivoScreenFragment : BaseFragment(), ScoreListener, HomeMainActivity.OnA
                 })
         } catch (e: Exception) {
             e.printStackTrace()
-        }
+        }*/
     }
 
     @RequiresApi(Build.VERSION_CODES.Q)
@@ -934,7 +934,7 @@ class AktivoScreenFragment : BaseFragment(), ScoreListener, HomeMainActivity.OnA
         }
     }
 
-    private fun setUpSlidingChallengesViewPager(challengesList: MutableList<Challenge>) {
+    /*private fun setUpSlidingChallengesViewPager(challengesList: MutableList<Challenge>) {
         try {
             slidingDotsCountChallenges = challengesList.size
             slidingImageDotsChallenges = arrayOfNulls(slidingDotsCountChallenges)
@@ -1003,7 +1003,7 @@ class AktivoScreenFragment : BaseFragment(), ScoreListener, HomeMainActivity.OnA
         }
     }
 
-
+*/
     override fun onHelpClick() {
         selectToPlayTutorial()
     }

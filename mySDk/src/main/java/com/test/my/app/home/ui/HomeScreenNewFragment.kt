@@ -13,7 +13,7 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
-import com.aktivolabs.aktivocore.data.models.Stats
+/*import com.aktivolabs.aktivocore.data.models.Stats
 import com.aktivolabs.aktivocore.data.models.User
 import com.aktivolabs.aktivocore.data.models.badges.DailyBadge
 import com.aktivolabs.aktivocore.data.models.challenge.Challenge
@@ -28,7 +28,7 @@ import com.aktivolabs.aktivocore.data.models.score.ScoreStats
 import com.aktivolabs.aktivocore.data.models.sleep.SleepStats
 import com.aktivolabs.aktivocore.data.models.steps.StepStats
 import com.aktivolabs.aktivocore.managers.AktivoManager
-import com.aktivolabs.aktivocore.network.ResultData
+import com.aktivolabs.aktivocore.network.ResultData*/
 import com.test.my.app.R
 import com.test.my.app.common.base.BaseFragment
 import com.test.my.app.common.base.BaseViewModel
@@ -103,7 +103,7 @@ class HomeScreenNewFragment : BaseFragment() , HomeMainActivity.OnAktivoListener
     private var aktivoScore = 0
     private var aktivoMindScore = 0
     private var aktivoBadge = "CONTENDER"
-    private var aktivoManager: AktivoManager? = null
+//    private var aktivoManager: AktivoManager? = null
     private var compositeDisposable: CompositeDisposable? = null
     private var dialogAktivoBadges: DialogAktivoBadges? = null
     private val faceScanSingleton = FaceScanSingleton.getInstance()!!
@@ -111,7 +111,7 @@ class HomeScreenNewFragment : BaseFragment() , HomeMainActivity.OnAktivoListener
     var handler : Handler = Handler(Looper.getMainLooper())
     private var currentPage = 0
     var slidingDashboardAdapter : SlidingDashboardAdapter? = null
-    val challengesList: MutableList<Challenge> = mutableListOf()
+//    val challengesList: MutableList<Challenge> = mutableListOf()
     val policyBannerList: MutableList<PolicyProductsModel.PolicyProducts> = mutableListOf()
     //val dashboardBannerList: MutableList<DataHandler.DashboardBannerModel> = mutableListOf()
 
@@ -165,7 +165,7 @@ class HomeScreenNewFragment : BaseFragment() , HomeMainActivity.OnAktivoListener
         binding = FragmentHomeScreenNewBinding.inflate(inflater, container, false)
         try {
             CleverTapHelper.pushEvent(requireContext(), CleverTapConstants.DASHBOARD_SCREEN)
-            aktivoManager = AktivoManager.getInstance(requireContext())
+//            aktivoManager = AktivoManager.getInstance(requireContext())
             compositeDisposable = CompositeDisposable()
             fitnessDataManager = FitnessDataManager(requireContext())
 
@@ -611,12 +611,12 @@ class HomeScreenNewFragment : BaseFragment() , HomeMainActivity.OnAktivoListener
         val userId = viewModel.getUserPreference(PreferenceConstants.AKTIVO_MEMBER_ID)
         val token = viewModel.getUserPreference(PreferenceConstants.AKTIVO_ACCESS_TOKEN)
         val refreshToken = viewModel.getUserPreference(PreferenceConstants.AKTIVO_REFRESH_TOKEN)
-        aktivoManager!!.setClientId(Constants.strAktivoClientId)
-        aktivoManager!!.setUserTokens(token, refreshToken)
-        authenticateUser(userId)
+//        aktivoManager!!.setClientId(Constants.strAktivoClientId)
+//        aktivoManager!!.setUserTokens(token, refreshToken)
+//        authenticateUser(userId)
     }
 
-    private fun authenticateUser(userId: String) {
+   /* private fun authenticateUser(userId: String) {
         try {
             aktivoManager!!.authenticateUser(User(userId), requireActivity())
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
@@ -635,7 +635,7 @@ class HomeScreenNewFragment : BaseFragment() , HomeMainActivity.OnAktivoListener
         } catch (e: Exception) {
             e.printStackTrace()
         }
-    }
+    }*/
 
     private fun checkFitnessPermissionsAndProceed() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -681,7 +681,7 @@ class HomeScreenNewFragment : BaseFragment() , HomeMainActivity.OnAktivoListener
     }
 
     private fun syncFitnessData() {
-        try {
+     /*   try {
             //viewModel.showProgress()
             compositeDisposable!!.add(
                 aktivoManager!!.syncFitnessData().subscribeOn(Schedulers.io())
@@ -711,10 +711,10 @@ class HomeScreenNewFragment : BaseFragment() , HomeMainActivity.OnAktivoListener
             )
         } catch (e: Exception) {
             e.printStackTrace()
-        }
+        }*/
     }
 
-    private fun getLatestAktivoScore() {
+   /* private fun getLatestAktivoScore() {
         try {
             var score = "0"
             Utilities.printLogError("TodaysDate--->$selectedDate")
@@ -909,7 +909,7 @@ class HomeScreenNewFragment : BaseFragment() , HomeMainActivity.OnAktivoListener
                         challengesList.clear()
                         challengesList.addAll(challenges.toMutableList().distinct())
                         slidingDashboardAdapter!!.updatePolicyBannerList()
-/*                        if (challenges.isNotEmpty()) {
+*//*                        if (challenges.isNotEmpty()) {
                             binding.layoutChallenges.visibility = View.VISIBLE
                             challengesList.clear()
                             challengesList.addAll(challenges.toMutableList())
@@ -917,7 +917,7 @@ class HomeScreenNewFragment : BaseFragment() , HomeMainActivity.OnAktivoListener
                             //setUpSlidingChallengesViewPager(challenges.toMutableList())
                         } else {
                             binding.layoutChallenges.visibility = View.GONE
-                        }*/
+                        }*//*
                         //checkToPlayTutorial()
                     }
                     override fun onError(e: Throwable) {
@@ -929,7 +929,7 @@ class HomeScreenNewFragment : BaseFragment() , HomeMainActivity.OnAktivoListener
         } catch (e: Exception) {
             e.printStackTrace()
         }
-    }
+    }*/
 
     private fun setUpSlidingDashboardViewPager() {
         try {
@@ -975,7 +975,7 @@ class HomeScreenNewFragment : BaseFragment() , HomeMainActivity.OnAktivoListener
 
 
     private fun checkAllGoogleFitPermission() {
-        try {
+      /*  try {
             aktivoManager!!.isGoogleFitPermissionGranted.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : SingleObserver<Boolean> {
@@ -994,10 +994,10 @@ class HomeScreenNewFragment : BaseFragment() , HomeMainActivity.OnAktivoListener
                 })
         } catch (e: Exception) {
             e.printStackTrace()
-        }
+        }*/
     }
 
-    private fun requestAllGoogleFitPermission() {
+  /*  private fun requestAllGoogleFitPermission() {
         try {
             Utilities.printLogError("Requesting All Google fit permissions")
             aktivoManager!!.requestGoogleFitPermissions(requireActivity(),Constants.REQ_CODE_AKTIVO_GOOGLE_FIT_PERMISSIONS
@@ -1012,11 +1012,11 @@ class HomeScreenNewFragment : BaseFragment() , HomeMainActivity.OnAktivoListener
         } catch (e: Exception) {
             e.printStackTrace()
         }
-    }
+    }*/
 
     @RequiresApi(Build.VERSION_CODES.Q)
     private fun checkPhysicalActivityPermission() {
-        try {
+        /*try {
             Utilities.printLogError("Checking Physical Activity permissions")
             aktivoManager!!.isActivityRecognitionPermissionGranted(requireActivity())
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
@@ -1035,10 +1035,10 @@ class HomeScreenNewFragment : BaseFragment() , HomeMainActivity.OnAktivoListener
                 })
         } catch (e: Exception) {
             e.printStackTrace()
-        }
+        }*/
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.Q)
+    /*@RequiresApi(api = Build.VERSION_CODES.Q)
     private fun requestPhysicalActivityPermission() {
         try {
             Utilities.printLogError("Requesting Physical Activity permissions")
@@ -1055,7 +1055,7 @@ class HomeScreenNewFragment : BaseFragment() , HomeMainActivity.OnAktivoListener
         } catch (e: Exception) {
             e.printStackTrace()
         }
-    }
+    }*/
 
     @SuppressLint("SetTextI18n")
     private fun loadData(data: GetDailyWaterIntakeModel.ResultData) {

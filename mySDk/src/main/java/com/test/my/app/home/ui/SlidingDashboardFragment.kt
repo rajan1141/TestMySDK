@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
-import com.aktivolabs.aktivocore.data.models.challenge.Challenge
+//import com.aktivolabs.aktivocore.data.models.challenge.Challenge
 import com.test.my.app.R
 import com.test.my.app.common.constants.CleverTapConstants
 import com.test.my.app.common.constants.Constants
@@ -78,13 +78,13 @@ class SlidingDashboardFragment : Fragment() {
                 binding.layoutChallenge.visibility = View.GONE
                 setPolicyBanner(model.data)
             }
-            model is DataHandler.DashboardBannerModel.TypeChallenge -> {
+           /* model is DataHandler.DashboardBannerModel.TypeChallenge -> {
                 //textView.text = "Type B: ${model.data.description}"
                 Utilities.printLogError("Type--->TypeChallenge")
                 binding.layoutPolicy.visibility = View.GONE
                 binding.layoutChallenge.visibility = View.VISIBLE
                 setChallengeBanner(model.data)
-            }
+            }*/
         }
 /*        model?.let {
             view.findViewById<TextView>(R.id.textView).text = "Title: ${it.title}"
@@ -168,7 +168,7 @@ class SlidingDashboardFragment : Fragment() {
         }
     }
 
-    @SuppressLint("SetTextI18n")
+  /*  @SuppressLint("SetTextI18n")
     private fun setChallengeBanner(challenge:Challenge) {
         if (!Utilities.isNullOrEmpty(challenge.imageUrl)) {
             //Glide.with(mContext).load(challenge.imageUrl).apply(RequestOptions.circleCropTransform()).into(holder.imgChallenge)
@@ -207,7 +207,7 @@ class SlidingDashboardFragment : Fragment() {
                 putString(Constants.CHALLENGE_ID, challenge.id)
             }
         }
-    }
+    }*/
 
 /*    companion object {
         @JvmStatic

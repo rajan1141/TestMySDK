@@ -7,9 +7,9 @@ import android.widget.Button
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.lifecycle.ViewModelProvider
-import com.aktivolabs.aktivocore.data.models.User
+/*import com.aktivolabs.aktivocore.data.models.User
 import com.aktivolabs.aktivocore.data.repositories.LocalRepository
-import com.aktivolabs.aktivocore.managers.AktivoManager
+import com.aktivolabs.aktivocore.managers.AktivoManager*/
 import com.test.my.app.R
 import com.test.my.app.common.base.BaseActivity
 import com.test.my.app.common.base.BaseViewModel
@@ -183,7 +183,7 @@ class PasswordChangeActivity : BaseActivity(), DefaultNotificationDialog.OnDialo
 
     override fun onDialogClickListener(isButtonLeft: Boolean, isButtonRight: Boolean) {}
 
-    private fun invalidateAktivoData() {
+    /*private fun invalidateAktivoData() {
         try {
             val localRepository = LocalRepository(this)
             val aktivoManager = AktivoManager.getInstance(this)
@@ -203,6 +203,6 @@ class PasswordChangeActivity : BaseActivity(), DefaultNotificationDialog.OnDialo
         } catch (e: Exception) {
             e.printStackTrace()
         }
-    }
+    }*/
 
 }

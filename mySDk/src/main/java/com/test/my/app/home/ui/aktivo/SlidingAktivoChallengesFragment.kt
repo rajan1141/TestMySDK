@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.aktivolabs.aktivocore.data.models.challenge.Challenge
+//import com.aktivolabs.aktivocore.data.models.challenge.Challenge
 import com.test.my.app.R
 import com.test.my.app.common.constants.CleverTapConstants
 import com.test.my.app.common.constants.Constants
@@ -29,7 +29,7 @@ class SlidingAktivoChallengesFragment : Fragment() {
 
     companion object {
         var position = 0
-        var challengesList: MutableList<Challenge> = mutableListOf()
+        /*var challengesList: MutableList<Challenge> = mutableListOf()
 
         fun newInstance( pos:Int, list:MutableList<Challenge> ) : SlidingAktivoChallengesFragment {
             val fragment = SlidingAktivoChallengesFragment()
@@ -39,20 +39,20 @@ class SlidingAktivoChallengesFragment : Fragment() {
             args.putInt(Constants.POSITION,pos)
             fragment.arguments = args
             return fragment
-        }
+        }*/
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentSlidingAktivoChallengesBinding.inflate(inflater, container, false)
-        if ( challengesList.isNotEmpty() ) {
+       /* if ( challengesList.isNotEmpty() ) {
             initialise()
-        }
+        }*/
         return binding.root
     }
 
     @SuppressLint("SetTextI18n")
     fun initialise() {
-        try {
+        /*try {
             val challenge = challengesList[position]
             if (!Utilities.isNullOrEmpty(challenge.imageUrl)) {
                 //Glide.with(mContext).load(challenge.imageUrl).apply(RequestOptions.circleCropTransform()).into(holder.imgChallenge)
@@ -98,7 +98,7 @@ class SlidingAktivoChallengesFragment : Fragment() {
             }
         } catch (e: Exception) {
             e.printStackTrace()
-        }
+        }*/
     }
 
 }

@@ -6,7 +6,7 @@ import android.net.Uri
 import android.os.Parcelable
 import android.view.View
 import androidx.core.content.ContextCompat
-import com.aktivolabs.aktivocore.data.models.challenge.Challenge
+//import com.aktivolabs.aktivocore.data.models.challenge.Challenge
 import com.test.my.app.R
 import com.test.my.app.common.constants.Constants
 import com.test.my.app.common.utils.LocaleHelper
@@ -334,7 +334,7 @@ class DataHandler(val context: Context) {
     @Parcelize
     sealed class DashboardBannerModel : Parcelable {
         data class TypePolicy(val data: @RawValue PolicyProductsModel.PolicyProducts) : DashboardBannerModel()
-        data class TypeChallenge(val data: Challenge) : DashboardBannerModel()
+//        data class TypeChallenge(val data: Challenge) : DashboardBannerModel()
     }
 
 /*    sealed class DashboardBannerModel : Serializable {

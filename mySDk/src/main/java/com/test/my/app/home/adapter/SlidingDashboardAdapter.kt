@@ -24,10 +24,10 @@ class SlidingDashboardAdapter(fragmentActivity: FragmentActivity,
 
     fun updatePolicyBannerList() {
         val dataA = fragment.policyBannerList.map { DataHandler.DashboardBannerModel.TypePolicy(it) }
-        val dataB = fragment.challengesList.distinct().map { DataHandler.DashboardBannerModel.TypeChallenge(it) }
-        val final = dataA + dataB
+//        val dataB = fragment.challengesList.distinct().map { DataHandler.DashboardBannerModel.TypeChallenge(it) }
+//        val final = dataA + dataB
         models.clear()
-        models.addAll(final)
+//        models.addAll(final)
         Utilities.printData("CombinedBannerList",models)
         //fragment.binding.slidingViewPagerChallenges.removeAllViews()
         if ( models.isNotEmpty() ) {

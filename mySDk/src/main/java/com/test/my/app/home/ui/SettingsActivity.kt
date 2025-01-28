@@ -7,7 +7,7 @@ import androidx.core.graphics.BlendModeCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.aktivolabs.aktivocore.managers.AktivoManager
+//import com.aktivolabs.aktivocore.managers.AktivoManager
 import com.test.my.app.R
 import com.test.my.app.common.base.BaseActivity
 import com.test.my.app.common.base.BaseViewModel
@@ -168,6 +168,7 @@ class SettingsActivity : BaseActivity(), OptionSettingsAdapter.SettingsOptionLis
 
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
+        super.onBackPressed()
         finish()
 //        openAnotherActivity(destination = NavigationConstants.HOME, clearTop = true,animate = false)
     }
@@ -178,7 +179,7 @@ class SettingsActivity : BaseActivity(), OptionSettingsAdapter.SettingsOptionLis
         }
     }
 
-    private fun invalidateAktivoData() {
+/*    private fun invalidateAktivoData() {
         try {
             val aktivoManager = AktivoManager.getInstance(this)
             aktivoManager!!
@@ -197,6 +198,6 @@ class SettingsActivity : BaseActivity(), OptionSettingsAdapter.SettingsOptionLis
         } catch (e: Exception) {
             e.printStackTrace()
         }
-    }
+    }*/
 
 }

@@ -22,13 +22,13 @@ import androidx.core.graphics.BlendModeCompat
 import androidx.core.net.toFile
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.aktivolabs.aktivocore.data.models.userprofile.UserProfile
+/*import com.aktivolabs.aktivocore.data.models.userprofile.UserProfile
 import com.aktivolabs.aktivocore.data.models.userprofile.enums.Gender
 import com.aktivolabs.aktivocore.data.models.userprofile.height.Height
 import com.aktivolabs.aktivocore.data.models.userprofile.height.HeightCm
 import com.aktivolabs.aktivocore.data.models.userprofile.weight.Weight
 import com.aktivolabs.aktivocore.data.models.userprofile.weight.WeightKg
-import com.aktivolabs.aktivocore.managers.AktivoManager
+import com.aktivolabs.aktivocore.managers.AktivoManager*/
 import com.test.my.app.R
 import com.test.my.app.common.base.BaseActivity
 import com.test.my.app.common.base.BaseViewModel
@@ -94,7 +94,7 @@ class EditProfileActivity : BaseActivity(), EditProfileBottomSheet.OnOptionClick
     var isChanged = false
 
     //private var profPicBitmap : Bitmap? = null
-    private var aktivoManager: AktivoManager? = null
+//    private var aktivoManager: AktivoManager? = null
 
     private var urlConfig: UrlConfig = UrlConfig()
 
@@ -166,7 +166,7 @@ class EditProfileActivity : BaseActivity(), EditProfileBottomSheet.OnOptionClick
         setClickable()
     }
     private fun initialise() {
-        aktivoManager = AktivoManager.getInstance(this)
+//        aktivoManager = AktivoManager.getInstance(this)
         startImageShimmer()
         if(viewModel.isSelfUser()){
             //binding.layoutChangeProfilePic.visibility = View.VISIBLE
@@ -636,7 +636,7 @@ class EditProfileActivity : BaseActivity(), EditProfileBottomSheet.OnOptionClick
         }
     }
 
-    private fun updateAktivoUserProfile(user: Person) {
+    /*private fun updateAktivoUserProfile(user: Person) {
         try {
             val date = DateHelper.convertDateSourceToDestination(user.dateOfBirth.split("T").toTypedArray()[0],DateHelper.SERVER_DATE_YYYYMMDD,"yyyy/MM/dd")
             val dateOfBirth = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy/MM/dd"))
@@ -667,7 +667,7 @@ class EditProfileActivity : BaseActivity(), EditProfileBottomSheet.OnOptionClick
         } catch ( e:Exception ) {
             e.printStackTrace()
         }
-    }
+    }*/
 
     fun finishWithResult() {
         setResult(Activity.RESULT_OK,Intent())

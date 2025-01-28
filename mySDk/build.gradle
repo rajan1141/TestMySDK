@@ -257,12 +257,12 @@ dependencies {
     def opencv_version = '4.3.0'
     implementation "com.github.iamareebjamal:opencv-android:${opencv_version}"
 
-    //Aktivo-elk
+   /* //Aktivo-elk
     implementation group: 'com.aktivolabs.aktivoelk', name: 'aktivoelk', version: '1.0.0', ext: 'aar', classifier: 'release'
 
     //Aktivocore
     implementation group: 'com.aktivolabs.aktivocore', name: 'aktivocore', version: '4.0.7', ext: 'aar', classifier: 'release'
-
+*/
     implementation 'joda-time:joda-time:2.10.14'
 
     // worker

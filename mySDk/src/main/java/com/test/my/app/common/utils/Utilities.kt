@@ -37,7 +37,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import com.aktivolabs.aktivocore.managers.AktivoManager
+//import com.aktivolabs.aktivocore.managers.AktivoManager
 import com.test.my.app.BuildConfig
 import com.test.my.app.R
 import com.test.my.app.common.base.DialogFullScreenView
@@ -1127,7 +1127,7 @@ object Utilities {
     }
 
     private fun invalidateAktivoData(context: Context,activity: Activity) {
-        try {
+       /* try {
             val aktivoManager = AktivoManager.getInstance(context)
             aktivoManager!!.invalidateUser(activity).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).subscribe(object : CompletableObserver {
@@ -1141,7 +1141,7 @@ object Utilities {
                 })
         } catch (e: Exception) {
             e.printStackTrace()
-        }
+        }*/
     }
 
     private fun resetPreferencesOnLogout() {

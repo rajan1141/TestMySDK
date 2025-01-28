@@ -9,9 +9,9 @@ import androidx.annotation.RequiresApi
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.lifecycle.ViewModelProvider
-import com.aktivolabs.aktivocore.data.models.User
+/*import com.aktivolabs.aktivocore.data.models.User
 import com.aktivolabs.aktivocore.data.models.aktivolite.AktivoLiteToolbarTheme
-import com.aktivolabs.aktivocore.managers.AktivoManager
+import com.aktivolabs.aktivocore.managers.AktivoManager*/
 import com.test.my.app.R
 import com.test.my.app.common.base.BaseActivity
 import com.test.my.app.common.base.BaseViewModel
@@ -52,7 +52,7 @@ class AktivoPermissionsActivity : BaseActivity() {
     private val pwaExitCode = 9000
     private val permissionUtil = PermissionUtil
     private var fitnessDataManager: FitnessDataManager? = null
-    private var aktivoManager: AktivoManager? = null
+//    private var aktivoManager: AktivoManager? = null
     private var compositeDisposable: CompositeDisposable? = null
 
     override fun getViewModel(): BaseViewModel = viewModel
@@ -87,7 +87,7 @@ class AktivoPermissionsActivity : BaseActivity() {
         viewModel.showProgress()
         binding.layoutPermissions.visibility = View.GONE
         fitnessDataManager = FitnessDataManager(this)
-        aktivoManager = AktivoManager.getInstance(this)
+//        aktivoManager = AktivoManager.getInstance(this)
         compositeDisposable = CompositeDisposable()
 
         if (Utilities.isNullOrEmpty(viewModel.getUserPreference(PreferenceConstants.AKTIVO_MEMBER_ID)) && Utilities.isNullOrEmpty(
@@ -199,13 +199,13 @@ class AktivoPermissionsActivity : BaseActivity() {
         val userId = viewModel.getUserPreference(PreferenceConstants.AKTIVO_MEMBER_ID)
         val token = viewModel.getUserPreference(PreferenceConstants.AKTIVO_ACCESS_TOKEN)
         val refreshToken = viewModel.getUserPreference(PreferenceConstants.AKTIVO_REFRESH_TOKEN)
-        aktivoManager!!.setClientId(Constants.strAktivoClientId)
-        aktivoManager!!.setUserTokens(token, refreshToken)
+        /*aktivoManager!!.setClientId(Constants.strAktivoClientId)
+        aktivoManager!!.setUserTokens(token, refreshToken)*/
         authenticateUser(userId)
     }
 
     private fun authenticateUser(userId: String) {
-        try {
+       /* try {
             //viewModel.showProgress()
             aktivoManager!!.authenticateUser(User(userId), this).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).subscribe(object : CompletableObserver {
@@ -232,11 +232,11 @@ class AktivoPermissionsActivity : BaseActivity() {
                 })
         } catch (e: Exception) {
             e.printStackTrace()
-        }
+        }*/
     }
 
     private fun syncFitnessData() {
-        try {
+        /*try {
             compositeDisposable!!.add(
                 aktivoManager!!.syncFitnessData().subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -259,7 +259,7 @@ class AktivoPermissionsActivity : BaseActivity() {
             )
         } catch (e: Exception) {
             e.printStackTrace()
-        }
+        }*/
     }
 
     private fun launchAktivoPWA() {
@@ -274,7 +274,7 @@ class AktivoPermissionsActivity : BaseActivity() {
         }
     }
     private fun callAktivoLiteDashboardWithPayload(screenCode:String,payload:String) {
-        try {
+        /*try {
             Utilities.printLogError("Launching_PWA--->$screenCode")
             aktivoManager!!.launchPWA(
                 screenCode,
@@ -301,11 +301,11 @@ class AktivoPermissionsActivity : BaseActivity() {
 
         } catch (e: Exception) {
             e.printStackTrace()
-        }
+        }*/
     }
 
     private fun callAktivoLiteDashboard(screenCode: String) {
-        try {
+        /*try {
             Utilities.printLogError("Launching_PWA--->$screenCode")
             //val toolbarHeight = DensityUtil.px2dip(this,binding.toolBarView.toolbarTitle.height.toFloat())
             //viewModel.showProgress()
@@ -325,7 +325,7 @@ class AktivoPermissionsActivity : BaseActivity() {
                 })
         } catch (e: Exception) {
             e.printStackTrace()
-        }
+        }*/
     }
 
     /*    private fun launchPWA(displayCode: String) {
@@ -351,7 +351,7 @@ class AktivoPermissionsActivity : BaseActivity() {
         }*/
 
     private fun checkAllGoogleFitPermission() {
-        try {
+        /*try {
             aktivoManager!!.isGoogleFitPermissionGranted.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : SingleObserver<Boolean> {
@@ -371,11 +371,11 @@ class AktivoPermissionsActivity : BaseActivity() {
                 })
         } catch (e: Exception) {
             e.printStackTrace()
-        }
+        }*/
     }
 
     private fun requestAllGoogleFitPermission() {
-        try {
+        /*try {
             Utilities.printLogError("Requesting All Google fit permissions")
             aktivoManager!!.requestGoogleFitPermissions(
                 this,
@@ -390,7 +390,7 @@ class AktivoPermissionsActivity : BaseActivity() {
                 })
         } catch (e: Exception) {
             e.printStackTrace()
-        }
+        }*/
     }
 
     /*    private fun checkGoogleFitActivityPermission() {
@@ -488,7 +488,7 @@ class AktivoPermissionsActivity : BaseActivity() {
 
     @RequiresApi(Build.VERSION_CODES.Q)
     private fun checkPhysicalActivityPermission() {
-        try {
+       /* try {
             Utilities.printLogError("Checking Physical Activity permissions")
             aktivoManager!!.isActivityRecognitionPermissionGranted(this)
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
@@ -507,12 +507,12 @@ class AktivoPermissionsActivity : BaseActivity() {
                 })
         } catch (e: Exception) {
             e.printStackTrace()
-        }
+        }*/
     }
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
     private fun requestPhysicalActivityPermission() {
-        try {
+        /*try {
             Utilities.printLogError("Requesting Physical Activity permissions")
             aktivoManager!!.requestActivityRecognitionPermission(
                 this, Constants.REQ_PHYSICAL_ACTIVITY_PERMISSIONS
@@ -526,7 +526,7 @@ class AktivoPermissionsActivity : BaseActivity() {
                 })
         } catch (e: Exception) {
             e.printStackTrace()
-        }
+        }*/
     }
 
     @RequiresApi(Build.VERSION_CODES.Q)

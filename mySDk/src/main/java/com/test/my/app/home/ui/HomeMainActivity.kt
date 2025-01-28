@@ -18,7 +18,7 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.aktivolabs.aktivocore.managers.AktivoManager
+//import com.aktivolabs.aktivocore.managers.AktivoManager
 import com.test.my.app.R
 import com.test.my.app.common.base.BaseActivity
 import com.test.my.app.common.base.BaseAdapter
@@ -819,7 +819,7 @@ class HomeMainActivity : BaseActivity(),DefaultNotificationDialog.OnDialogValueL
         fun onClick()
     }
 
-    private fun invalidateAktivoData() {
+   /* private fun invalidateAktivoData() {
         try {
             val aktivoManager = AktivoManager.getInstance(this)
             aktivoManager!!.invalidateUser(this).subscribeOn(Schedulers.io())
@@ -835,7 +835,7 @@ class HomeMainActivity : BaseActivity(),DefaultNotificationDialog.OnDialogValueL
         } catch (e: Exception) {
             e.printStackTrace()
         }
-    }
+    }*/
 
     private fun checkDeepLink() {
         Utilities.printLogError("checkDeepLinkFromHomeActivity")
