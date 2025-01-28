@@ -4,8 +4,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-parcelize'
 apply plugin: "androidx.navigation.safeargs.kotlin"
-apply plugin: 'com.google.gms.google-services'
-apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'maven-publish'
 
 
@@ -98,12 +96,12 @@ publishing {
         release(MavenPublication) {
             afterEvaluate {
                 from components.release
-                groupId = 'github.com.MyTest'
+                groupId = 'github.com.MyTestSDK'
                 artifactId = 'MyTest_SDK_Sample'
                 version = '1.0.0'
 
                 pom {
-                    name = 'MyTest SDK'
+                    name = 'MyTestSDK'
                     description = 'MyTest_SDK_Sample'
                     url = 'https://github.com/rajan1141/TestMySDK/tree/1.0.1'
 

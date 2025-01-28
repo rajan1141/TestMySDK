@@ -59,6 +59,8 @@ allprojects {
             url "https://app-sdk.smit.fit/releases"
         }
 
+        /*accessKey "AKIAV7DUDSRXDYJB4IIP"
+                secretKey "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"*/
         maven {
             url "s3://android.aktivoelk.com.s3.amazonaws.com/releases"
             credentials(AwsCredentials) {
